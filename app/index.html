@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app = "myproject">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+	<script src="scripts/angular.min.js"></script>
+	<script src="scripts/angular-route.min.js"></script>
+	<script src="scripts/angular/app.js"></script>
+
+</head>
+<body>
+ <div>
+   <label>Name:</label>
+   <input type="text" ng-model="yourName" placeholder="Enter a name here">
+   <hr>
+   <h1>Hello {{yourName}}!</h1>
+ </div>
+ <div ng-view></div>
+</body>
+</html>
