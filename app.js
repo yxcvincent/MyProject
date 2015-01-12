@@ -12,6 +12,12 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/mytest1');
 
+//采用connect-mongodb中间件作为Session存储  
+var session = require('express-session');  
+var Settings = require('./settings');  
+var MongoStore = require('connect-mongodb');  
+// var db = require('./database/msession');
+
 var app = express();
 
 // view engine setup
@@ -26,13 +32,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'app')));
 
+//session配置
+app.use(session({
+    cookie: { maxAge: 600000 },
+    secret: Settings.COOKIE_SECRET,
+    store: new MongoStore({  
+        username: Settings.USERNAME,
+        password: Settings.PASSWORD,
+        url: Settings.URL,
+        db: db})
+}))
+
+
 //连接数据库和router
 app.use(function(req,res,next){
     req.db = db;
+    res.locals.user = req.session.user;
     next();
 });
 app.use('/', routes);
-app.use('/signin', routes);
 // app.use('/users', users);
 
 

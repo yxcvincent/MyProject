@@ -1,7 +1,8 @@
-angular.module('myproject', [])
+angular.module('MyProject', [])
 	.controller('LoginCtrl', function($scope,$http) {
         $scope.login = function() {
-   			$http.post('/login', $scope.user).success(function(data) {
+          $scope.user.password=$.md5($scope.user.password)
+   			  $http.post('/login', $scope.user).success(function(data) {
         		if(data==null||data.length==0){
         			alert("用户名或密码错误。");
         		}
@@ -15,3 +16,4 @@ angular.module('myproject', [])
 
         };
 	});
+

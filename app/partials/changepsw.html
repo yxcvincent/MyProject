@@ -1,0 +1,17 @@
+<h1 class="page-header">Change Password</h1>
+<form role="form">
+  <div class="form-group">
+    <label for="exampleInputOldPassword">Old Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Old Password" required ng-model="changePsw.oldpsw">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">New Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password" required ng-model="changePsw.newpsw">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword2">New Password Again</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New Password" required ng-model="changePsw.newpsw2">
+  </div>
+
+  <button type="submit" class="btn btn-default btn-primary btn-lg" ng-click="changePassword()">Submit</button>
+</form>

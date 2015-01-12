@@ -1,0 +1,27 @@
+<h1 class="page-header">User Management</h1>
+          
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Username</th>
+                  <th>Type</th>
+                  <th>Operation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="user in users">
+                  <td>{{user.email}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.type}}</td>
+                  <td>
+                    <a href="#/edituser" ng-click="getOldUser(user)">Edit</a> | 
+                    <a href="#/usermng" ng-click="deleteUser(user)">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <a href="#/adduser"><button type="button" class="btn btn-primary btn-lg">New User</button></a>

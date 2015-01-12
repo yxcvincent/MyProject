@@ -1,0 +1,18 @@
+<h1 class="page-header">Edit User</h1>
+<form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required ng-model="editNewUser.email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputUsername">Username</label>
+    <input type="text" class="form-control" placeholder="Enter Username" required ng-model="editNewUser.username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputType">User Type</label>
+    <select class="form-control" required ng-model="editNewUser.type">
+      <option>admin</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-default btn-primary btn-lg" ng-click='editUser()'>Submit</button>
+</form>
